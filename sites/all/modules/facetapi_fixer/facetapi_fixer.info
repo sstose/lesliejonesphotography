@@ -1,0 +1,3 @@
+name = Facetapi Fixer Module
+description = A home-made module, taken from: http://drupal.org/node/1417456
+core = 7.x

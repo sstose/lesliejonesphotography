@@ -1,0 +1,38 @@
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+#block-facetapi-bdl48x015793vj4wzvse3us9iwrr8phx h2  {
+text-align: left;
+padding-left: 10px;
+}
+#block-facetapi-oc31fkfl1921arvuc5wqcgz7ta6osjc5 h2 {
+text-align: right;
+padding-right: 10px;
+}
+
+#block-facetapi-bdl48x015793vj4wzvse3us9iwrr8phx   {
+width: 75%;
+float: left;
+}
+#block-facetapi-oc31fkfl1921arvuc5wqcgz7ta6osjc5  {
+width: 75%;
+float: right;
+}
+
+.facetapi-facet-subjectseries li a {
+display: block;
+text-align: left;
+}
+
+.facetapi-facet-nameheading li a {
+display: block;
+text-align: right;
+}
+
+

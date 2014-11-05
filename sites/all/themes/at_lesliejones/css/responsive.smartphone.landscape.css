@@ -1,0 +1,82 @@
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/* Increase the body font size on small devices */
+html {
+  /*font-size: 112.5%;*/
+  font-size: 108%;
+}
+
+div#zoom-img-wrapper.popup {
+display: none;
+}
+
+
+.lj-grid-display .views-view-grid tr td {
+padding: 1px;
+border: none;
+margin: 0;
+}
+
+
+
+#bpl_studio .bpl_studio_section img {
+width: 100%;
+float: left;
+display: inline-block;
+padding: 0 2% 2% 0;
+}
+
+
+
+#branding {
+position: relative;
+text-align: center;
+}
+
+.region-leaderboard {
+float: none;
+text-align: center;
+}
+
+
+
+
+#block-system-main-menu  {
+position: relative;
+width: 100%;
+overflow: hidden;
+}
+
+#block-system-main-menu ul.menu {
+position: relative;
+float: left;
+left: 50%;
+}
+
+#block-system-main-menu li {
+  color: #BBBBBB;
+  float: left;
+  right: 50%;
+  position: relative; 
+  margin: 0px 2px 0px 2px; 
+}
+
+
+#block-system-main-menu li a {
+  width: 72px;
+  padding: 3px;
+  height: 72px;
+  font-size: 1.1em;
+}
+
+#site-name a {
+  font-size: .7em;
+  color: #918779;
+}
