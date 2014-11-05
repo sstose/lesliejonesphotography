@@ -178,7 +178,8 @@ function update_results_page() {
     $output = '<p>Updates were attempted. If you see no failures below, you may proceed happily back to your <a href="' . base_path() . '">site</a>. Otherwise, you may need to update your database manually.' . $log_message . '</p>';
   }
   else {
-    list($module, $version) = array_pop(reset($_SESSION['updates_remaining']));
+    $updates_remaining = reset($_SESSION['updates_remaining']);
+    list($module, $version) = array_pop($updates_remaining);
     $output = '<p class="error">The update process was aborted prematurely while running <strong>update #' . $version . ' in ' . $module . '.module</strong>.' . $log_message;
     if (module_exists('dblog')) {
       $output .= ' You may need to check the <code>watchdog</code> database table manually.';
@@ -300,7 +301,7 @@ function update_access_denied_page() {
  * @return
  *   TRUE if the current user should be granted access, or FALSE otherwise.
  */
-function update_access_allowed() { if (defined("IN_INSTALLATRON")) return true;
+function update_access_allowed() {
   global $update_free_access, $user;
 
   // Allow the global variable in settings.php to override the access check.
@@ -392,7 +393,7 @@ $configurable_timezones = variable_get('configurable_timezones', 1);
 $conf['configurable_timezones'] = 0;
 
 // Determine if the current user has access to run update.php.
-drupal_bootstrap(DRUPAL_BOOTSTRAP_SESSION); if (defined("IN_INSTALLATRON")) $_GET["token"] = drupal_get_token("update");
+drupal_bootstrap(DRUPAL_BOOTSTRAP_SESSION);
 
 // Reset configurable timezones.
 $conf['configurable_timezones'] = $configurable_timezones;
@@ -463,27 +464,17 @@ if (update_access_allowed()) {
   update_check_requirements($skip_warnings);
 
   $op = isset($_REQUEST['op']) ? $_REQUEST['op'] : '';
-if (defined("IN_INSTALLATRON"))
-{
-	$_POST["start"] = array();
-	foreach ( update_get_update_list() as $module => $update )
-	{
-		if (!empty($update["pending"]))
-		{
-			$_POST["start"][$module] = $update["start"];
-		}
-	}
-} switch ($op) {
+  switch ($op) {
     // update.php ops.
 
     case 'selection':
-      if (isset($_GET['token']) && $_GET['token'] == drupal_get_token('update')) {
+      if (isset($_GET['token']) && drupal_valid_token($_GET['token'], 'update')) {
         $output = update_selection_page();
         break;
       }
 
     case 'Apply pending updates':
-      if (isset($_GET['token']) && $_GET['token'] == drupal_get_token('update')) {
+      if (isset($_GET['token']) && drupal_valid_token($_GET['token'], 'update')) {
         // Generate absolute URLs for the batch processing (using $base_root),
         // since the batch API will pass them to url() which does not handle
         // update.php correctly by default.
