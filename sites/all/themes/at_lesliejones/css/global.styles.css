@@ -108,7 +108,7 @@ opacity: .8;
 
 .lj-grid-display .views-view-grid tr td img {
 width: 100%;
-max-width: 382px;
+max-width: 500px;
 /*This is a Firefox and Opera Hack!!!!!!!  */
 }
 
@@ -141,7 +141,7 @@ font-size: 1.1em;
 
 .view-similarterms tr td img {
 width: 100%;
-max-width: 275px;
+max-width: 341px;
 /*This is a Firefox and Opera Hack!!!!!!!  */
 }
 
