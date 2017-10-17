@@ -65,9 +65,10 @@ src: url('images/CaviarDreams.ttf');
 }
 
 
-
-
-
+/* Lexicon page -- error hiding */
+.page-lexicon .error {
+  display: none;
+}
 
 
 
